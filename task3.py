@@ -3,12 +3,11 @@ import re
 
 def normalize_phone(phone_number: str) -> str:
     cleaned_number = re.sub(r'\D', '', phone_number)
+    print(cleaned_number)
 
     match cleaned_number:
         case number if number.startswith('380'):
             normalized_number = '+' + number
-        case number if number.startswith('0'):
-            normalized_number = '+38' + number[1:]
         case _:
             normalized_number = '+38' + cleaned_number
 
